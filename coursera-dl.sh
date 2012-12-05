@@ -26,7 +26,7 @@ allDlLinksPath=`mktemp -u`
 aria2c --load-cookies "$cookieFile" "$lectureFileURL" --dir `echo "$lectureFileDlPath" | egrep -o '^/.*/' | rev | cut -b 2- | rev` -o `echo "$lectureFileDlPath" | egrep -o '[^/]+$'`
 
 # Now find all the download links from the lecture index page, and store them in a file ($allDlLinksPath)
-egrep -o '"https.*(pdf|mp4).*"' "$lectureFileDlPath" | cut -b 2- | rev | cut -b 2- | rev > "$allDlLinksPath"
+egrep -o '"https[^"]*(pdf|mp4)[^"]*"' "$lectureFileDlPath" | cut -b 2- | rev | cut -b 2- | rev > "$allDlLinksPath"
 
 rm "$lectureFileDlPath" # remove the temp file - we don't need it anymore
 
