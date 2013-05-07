@@ -12,11 +12,11 @@ if [ $# -lt $EXPECTED_MIN_ARGS -o $# -gt $EXPECTED_MAX_ARGS ]; then
     exit $E_USAGE_ERROR
 fi
 
-lectureFileURL=$1
-cookieFile=$2
+lectureFileURL="$1"
+cookieFile="$2"
 
 if [ $# -ge 3 ]; then
-  outputDir=$3
+  outputDir="$3"
 fi
 
 lectureFileDlPath=`mktemp -u`
@@ -30,12 +30,11 @@ egrep -o '"https[^"]*(pdf|mp4)[^"]*"' "$lectureFileDlPath" | cut -b 2- | rev | c
 
 rm "$lectureFileDlPath" # remove the temp file - we don't need it anymore
 
-# Now iterate over the file "$allDlLinksPath", and download a link iff it's ID >= minId provided on command line
-cat $allDlLinksPath | while read link; do
+cat "$allDlLinksPath" | while read link; do
   echo "******* Will start Downloading link: $link *******"
   aria2c --continue --load-cookies "$cookieFile" --dir "$outputDir" "$link"
   echo "******* Finished downloading link: $link *******" && echo
 done
 
-rm $allDlLinksPath # remove the temp file - we don't need it anymore
+rm "$allDlLinksPath" # remove the temp file - we don't need it anymore
 echo && echo "All Downloads finished! :)" && echo
