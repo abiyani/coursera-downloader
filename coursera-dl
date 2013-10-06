@@ -16,7 +16,7 @@ assert_aria2c_is_present
 scriptname="$(basename "$0")"
 function print_usage() {
     echo "USAGE: $scriptname [options] <Resources_Page> <Destination_Directory>" >&2
-    echo -e "Downloads all resources from a course page. Requires 'aria2c' to be installed and in current path.\n" >&2
+    echo -e "Downloads all resources from a course page. Requires 'aria2c' to be installed.\n" >&2
     echo -e "Resources_Page                  Either path to a locally saved copy, or URL of the webpage containing links to all the resources" >&2
     echo -e "                                (e.g., 'https://class.coursera.org/algo2-002/lecture/index', '~/algo_lectures.html', etc)" >&2
     echo -e "Destination_Directory           Path to existing local directory where course resources will be downloaded." >&2
