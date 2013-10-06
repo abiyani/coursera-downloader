@@ -16,7 +16,7 @@ PS: This script is essentially a glorified bulk downloader (optimized for Course
 $ ./coursera-dl --help
 
 USAGE: coursera-dl [options] <Resources_Page> <Destination_Directory>
-Downloads all resources from a course page. Requires 'aria2c' to be installed and in current path.
+Downloads all resources from a course page. Requires 'aria2c' to be installed.
 
 Resources_Page                  Either path to a locally saved copy, or URL of the webpage containing links to all the resources
                                 (e.g., 'https://class.coursera.org/algo2-002/lecture/index', '~/algo_lectures.html', etc)
@@ -29,4 +29,5 @@ options:
 *Note:*
  - You need to be logged into coursera in your browser, and provide a link to the browser's cookie file (for authentication purpose). Usual location for Google Chrome's cookie file (in Ubuntu) is: ```~/.config/google-chrome/Default/Cookies```, similarly for Firefox (in Ubuntu): ```~/.mozilla/firefox/<ProfileNameHere>/```. After you login into coursera in your browser, provide the path to cookie file using ```--cookie-file``` parameter.
  - You need to have [aria2c](http://aria2.sourceforge.net) installed on your system to use this script. To install it on Ubuntu: ```sudo apt-get install aria2```
+
 ------------
