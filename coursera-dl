@@ -108,4 +108,4 @@ done
 if [ -f "$tempFile" ]; then
     rm "$tempFile"
 fi
-echo -e "All Downloads finished (total $count resources downloaded)! :)\n"
+echo -e "All Downloads finished (total $count files downloaded)! :)\n"
