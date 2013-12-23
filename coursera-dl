@@ -1,5 +1,6 @@
-#!/bin/bash -eu
-
+#!/bin/bash
+set -e
+set -u
 function assert_aria2c_is_present() {
     set +e
     aria2c --help >/dev/null
@@ -63,13 +64,13 @@ done
 function validate_input() {
     if [ ! -z "$cookieFile" ]; then
         if [ ! -f "$cookieFile" ]; then
-            echo -e "Not a valid file: '$cookieFile'\n"
+            echo -e "Not a valid file: '$cookieFile'\n" >&2
             print_usage
             exit 1
         fi
     fi
     if [ ! -d "$destDir" ]; then
-        echo -e "Not a valid directory: '$destDir'\n"
+        echo -e "Not a valid directory: '$destDir'\n" >&2
         print_usage
         exit 1
     fi
