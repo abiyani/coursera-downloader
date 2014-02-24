@@ -9,6 +9,7 @@ function assert_aria2c_is_present() {
         echo "Unable to find 'aria2c' (the command 'aria2c --help' failed). Please make sure that the package 'aria2c' (http://aria2.sourceforge.net/) is correctly installed" >&2
         exit 1
     fi
+    set -e
 }
 assert_aria2c_is_present
 
