@@ -87,7 +87,7 @@ fi
 
 tempFile=""
 if [ ! -f "$resourcesPage" ]; then
-    tempFile="$(mktemp -u --tmpdir courseraDL.XXXXXX)"
+    tempFile="$(mktemp -u -t courseraDL.XXXXXX)"
     # Download the HTML page which contains link to all the resources
     aria2c $aria2c_cookie_arg "$resourcesPage"  --dir "$(dirname "$tempFile")" -o "$(basename "$tempFile")"
     htmlFile="$tempFile"
@@ -104,7 +104,7 @@ for link in $allURLS; do
     echo "******* Will start Downloading link: $link *******"
     aria2c --continue $aria2c_cookie_arg --dir "$destDir" "$link"
     echo -e "******* Finished downloading link: $link *******\n"
-    count=$(($count+1))
+    count=$((count+1))
 done
 
 if [ -f "$tempFile" ]; then
