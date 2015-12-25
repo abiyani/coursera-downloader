@@ -1,7 +1,5 @@
 ------------
 ### Note: This program is *NOT* affiliated with (or endorsed by) Coursera® in anyway.
-
-#### License: [WTFPL](http://www.wtfpl.net/).
 -------------
 
 ##[Coursera.org](https://www.coursera.org) course downloader
